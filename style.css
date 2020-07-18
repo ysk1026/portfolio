@@ -203,6 +203,7 @@ p {
 
 .section__container {
   max-width: 1200px;
+  margin: auto;
 }
 
 /* About */
@@ -416,4 +417,44 @@ p {
   margin-left: -12px;
   margin-top: 8px;
   background-color: var(--color-dark-white);
+}
+/* Testimonials */
+
+#testimonials {
+  background-color: var(--color-light-white);
+}
+
+.testimonial {
+  margin: 40px;
+  display: flex;
+  margin: 32px 0;
+}
+
+.testimonial__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 12px;
+}
+
+.testimonial__avatar:nth-child(odd) {
+  margin-right: 40px;
+}
+
+.testimonial__avatar:nth-child(even) {
+  margin-left: 40px;
+}
+
+.testimonial__speech--bubble {
+  padding: 18px;
+  background: var(--color-white);
+  border-radius: var(--size-border-radius);
+}
+
+.testimonial__speech--bubble p {
+  color: lihgt var(--color-light-grey);
+}
+
+.testimonial__speech--bubble a {
+  color: var(--color-pink);
 }
