@@ -59,3 +59,29 @@ function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth", block: "center" });
 }
+
+// Make Arrow up
+
+const arrow = document.querySelector(".arrowup");
+
+document.addEventListener("scroll", () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrow.classList.add("visible");
+  } else {
+    arrow.classList.remove("visible");
+  }
+});
+
+/* 내가 짠 코드 
+  document.addEventListener("scroll", () => {
+  const posi = window.scrollY - 15;
+  if (window.scrollY > 300) {
+    arrow.style.display = "block";
+    arrow.style.opacity = 1;
+    arrow.style.bottom = `-${posi}px`;
+  }
+}); */
+
+arrow.addEventListener("click", () => {
+  window.scroll({ top: 0, left: 0, behavior: "smooth" });
+});
