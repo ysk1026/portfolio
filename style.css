@@ -455,6 +455,9 @@ p {
   margin: 12px;
 }
 
+.forTest {
+  display: none;
+}
 .testimonial__avatar:nth-child(odd) {
   margin-right: 40px;
 }

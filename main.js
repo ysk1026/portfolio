@@ -85,3 +85,51 @@ document.addEventListener("scroll", () => {
 arrow.addEventListener("click", () => {
   window.scroll({ top: 0, left: 0, behavior: "smooth" });
 });
+
+/* arrowUp.addEventListener('click', () => {
+  scrollIntoView('#home');
+}); */
+
+// Project handler
+const allBtn = document.querySelector('button[data-link="#all"]');
+
+const frontEnd = document.querySelector('a[data-link="#frontEnd"]');
+const frontEndBtn = document.querySelector('button[data-link="#frontEnd"]');
+
+const react = document.querySelector('a[data-link="#react"]');
+const reactBtn = document.querySelector('button[data-link="#react"]');
+
+const python = document.querySelector('a[data-link="#python"]');
+const pythonBtn = document.querySelector('button[data-link="#python"]');
+
+allBtn.addEventListener("click", () => {
+  makeAllBlock(frontEnd, react, python);
+});
+
+frontEndBtn.addEventListener("click", () => {
+  makeItNone(react, python, frontEnd);
+});
+
+reactBtn.addEventListener("click", () => {
+  makeItNone(frontEnd, python, react);
+});
+
+pythonBtn.addEventListener("click", () => {
+  makeItNone(frontEnd, react, python);
+});
+
+function makeItNone(first, second, last) {
+  first.style.display = "none";
+  second.style.display = "none";
+  last.style.display = "block";
+}
+
+function makeAllBlock(first, second, last) {
+  first.style.display = "block";
+  second.style.display = "block";
+  last.style.display = "block";
+}
+
+// 일단은 이 개념으로 sorting은했는데 자연스럽게 나타나게 하려면
+// add class list로 바꾸고 transition 조정?! 하는게 좋을듯..근데 디스플 바꾸는거라
+// 어렵다..
