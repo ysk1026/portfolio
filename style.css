@@ -397,6 +397,9 @@ p {
   background-color: var(--color-light-white);
 }
 
+.project.invisible {
+  display: none;
+}
 .project:hover .project__description {
   opacity: 0.8;
   transform: translateY(0px);
@@ -455,9 +458,6 @@ p {
   margin: 12px;
 }
 
-.forTest {
-  display: none;
-}
 .testimonial__avatar:nth-child(odd) {
   margin-right: 40px;
 }

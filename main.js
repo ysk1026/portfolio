@@ -91,16 +91,18 @@ arrow.addEventListener("click", () => {
 }); */
 
 // Project handler
-const allBtn = document.querySelector('button[data-link="#all"]');
 
-const frontEnd = document.querySelector('a[data-link="#frontEnd"]');
-const frontEndBtn = document.querySelector('button[data-link="#frontEnd"]');
+/* 내가 한것 
+const allBtn = document.querySelector('button[data-filter="#all"]');
 
-const react = document.querySelector('a[data-link="#react"]');
-const reactBtn = document.querySelector('button[data-link="#react"]');
+const frontEnd = document.querySelector('a[data-type="#frontEnd"]');
+const frontEndBtn = document.querySelector('button[data-filter="#frontEnd"]');
 
-const python = document.querySelector('a[data-link="#python"]');
-const pythonBtn = document.querySelector('button[data-link="#python"]');
+const react = document.querySelector('a[data-type="#react"]');
+const reactBtn = document.querySelector('button[data-filter="#react"]');
+
+const python = document.querySelector('a[data-type="#python"]');
+const pythonBtn = document.querySelector('button[data-filter="#python"]');
 
 allBtn.addEventListener("click", () => {
   makeAllBlock(frontEnd, react, python);
@@ -133,3 +135,55 @@ function makeAllBlock(first, second, last) {
 // 일단은 이 개념으로 sorting은했는데 자연스럽게 나타나게 하려면
 // add class list로 바꾸고 transition 조정?! 하는게 좋을듯..근데 디스플 바꾸는거라
 // 어렵다..
+
+*/
+// 엘리선생님이 한 것
+
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+
+workBtnContainer.addEventListener("click", (e) => {
+  //이런식으로 const안에 || 추가해서 앞에 게 false라면 뒤에거 추가 가능한듯?
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  //console.log(filter);
+  if (filter == null) {
+    return;
+  } else {
+    projects.forEach((project) => {
+      //console.log(project.dataset.type);
+      if (filter === "*" || filter === project.dataset.type) {
+        console.log(project);
+        project.classList.remove("invisible");
+      } else {
+        console.log(project);
+        project.classList.add("invisible");
+      }
+    });
+  }
+});
+
+//아직 다 이해가 안된다...
+// 콜스택 돌려본 결과? forEach니까 프로젝트를 3번 도는데 (안에 3개의 array value들이 있어서)
+// frontEnd누르면 첫번째 if문에서 true에 해당하니까 1번 조건문 돌려주고
+// 2,3번 돌려서 filter가 dataset.type이랑 맞지 않으니까 false로 가서 2번 돌려주는듯
+/* 정리하면? 나의 해석 = frontEnd누르면 filter = frontEnd인데
+첫번째 if문에서 project.dataset.type은 
+
+/* 1,2,3 다 같은 function
+// 1
+projects.forEach((project) => {
+  console.log(project);
+});
+
+//2
+for (let fd of projects) {
+  console.log(fd);
+}
+//3
+let project;
+for (let i = 0; i < projects.length; i++) {
+  project = projects[i];
+  console.log(project);
+}
+*/
