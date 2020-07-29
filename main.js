@@ -5,8 +5,8 @@ const navbar = document.querySelector("#navbar");
 const navbarHeight = navbar.getBoundingClientRect().height;
 
 document.addEventListener("scroll", () => {
-  console.log(window.scrollY);
-  console.log(`navbarHeight: ${navbarHeight}`);
+  //console.log(window.scrollY);
+  //console.log(`navbarHeight: ${navbarHeight}`);
   if (window.scrollY > navbarHeight) {
     navbar.classList.add("navbar--dark");
   } else {
@@ -17,6 +17,7 @@ document.addEventListener("scroll", () => {
 // Handle scrolling when tapping on the navbar menu
 
 const navbarMenu = document.querySelector(".navbar__menu");
+const items = document.querySelectorAll(".navbar__menu__item");
 
 navbarMenu.addEventListener("click", (event) => {
   const link = event.target.dataset.link;
@@ -145,11 +146,19 @@ const projects = document.querySelectorAll(".project");
 
 workBtnContainer.addEventListener("click", (e) => {
   //이런식으로 const안에 || 추가해서 앞에 게 false라면 뒤에거 추가 가능한듯?
+
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
   //console.log(filter);
   if (filter == null) {
     return;
   }
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector(".categories__btn.selected");
+  active.classList.remove("selected");
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("selected");
+
   //클래스는 동적으로 동작하기때문에 원래같으면 filtering다음에 anim out이 진행됨
   //그래서 먼저 anim out추가하고 필터링을 setTimeout에 넣어서 실행
   projectContainer.classList.add("anim-out");
