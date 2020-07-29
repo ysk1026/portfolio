@@ -149,18 +149,23 @@ workBtnContainer.addEventListener("click", (e) => {
   //console.log(filter);
   if (filter == null) {
     return;
-  } else {
+  }
+  //클래스는 동적으로 동작하기때문에 원래같으면 filtering다음에 anim out이 진행됨
+  //그래서 먼저 anim out추가하고 필터링을 setTimeout에 넣어서 실행
+  projectContainer.classList.add("anim-out");
+  setTimeout(() => {
     projects.forEach((project) => {
       //console.log(project.dataset.type);
       if (filter === "*" || filter === project.dataset.type) {
-        console.log(project);
+        //console.log(project);
         project.classList.remove("invisible");
       } else {
-        console.log(project);
+        //console.log(project);
         project.classList.add("invisible");
       }
     });
-  }
+    projectContainer.classList.remove("anim-out");
+  }, 300);
 });
 
 //아직 다 이해가 안된다...
