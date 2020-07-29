@@ -24,8 +24,18 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return;
   }
+  navbarMenu.classList.remove("open");
   scrollIntoView(link);
 });
+
+// Navbar toggle button for small screen
+const toggleBtn = document.querySelector(".navbar__toggle-btn");
+
+toggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
+});
+//window.matchMedia("(max-width: 768px)").matches
+//logic = active가 있으면 지우고 없으면 추가하고
 
 // Handle click on "contact me" button
 
@@ -155,6 +165,8 @@ workBtnContainer.addEventListener("click", (e) => {
   // Remove selection from the previous item and select the new one
   const active = document.querySelector(".categories__btn.selected");
   active.classList.remove("selected");
+  //타겟의 노드네임이 button이면 ? e.target으로 쓰고 아니라면 parentNode써라
+  //자바스크립트안에서만 사용되는 문법
   const target =
     e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
   target.classList.add("selected");
