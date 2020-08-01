@@ -85,12 +85,13 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+  padding: 0px;
 }
 
 /* Typography */
 
 h1 {
-  font-family: "Tangerine", cursive;
+  font-family: "Noto Serif JP", serif;
   font-size: var(--font-large);
   font-weight: var(--weight-bold);
   color: var(--color-black);
@@ -240,6 +241,14 @@ p {
 }
 
 /* About */
+#about {
+  opacity: 0.4;
+  transition: all 500ms ease;
+}
+
+#about.scroll {
+  opacity: 1;
+}
 
 .about__majors {
   display: flex;
@@ -308,7 +317,13 @@ p {
 /* Skills */
 
 #skills {
-  background-color: var(--color-yellow);
+  background-color: aliceblue;
+  opacity: 0.4;
+  transition: all 500ms ease;
+}
+
+#skills.scroll {
+  opacity: 1;
 }
 
 .skillset {
@@ -360,6 +375,15 @@ p {
 }
 
 /* Work */
+
+#work {
+  opacity: 0.4;
+  transition: all 500ms ease;
+}
+
+#work.scroll {
+  opacity: 1;
+}
 
 .work__categories {
   margin: 40px;
@@ -469,6 +493,12 @@ p {
 
 #testimonials {
   background-color: var(--color-light-white);
+  opacity: 0.4;
+  transition: all 500ms ease;
+}
+
+#testimonials.scroll {
+  opacity: 1;
 }
 
 .testimonial {
@@ -509,13 +539,14 @@ p {
 /* Contact */
 
 #contact {
-  background-color: var(--color-pink);
+  background-color: var(--color-mint-cream);
 }
 
 .contact__title,
 .contact__email,
+.contact__links i,
 .contact__rights {
-  color: var(--color-white);
+  color: black;
 }
 
 .contact__title {
@@ -545,7 +576,7 @@ p {
   font-size: 50px;
   border: 1px solid transparent;
   border-radius: 50%;
-  background-color: var(--color-pink);
+  background-color: grey;
   opacity: 0;
   pointer-events: none;
   transition: all 300ms ease-in;
@@ -573,15 +604,16 @@ p {
   }
   .navbar__toggle-btn {
     display: block;
-    top: 16px;
+    top: 20px;
     right: 16px;
     font-size: var(--font-medium);
+    color: var(--color-black);
   }
 
   #navbar {
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--color-pink);
+    background-color: var(--color-white-smoke);
   }
 
   #navbar.navbar--dark {

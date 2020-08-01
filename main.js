@@ -71,6 +71,39 @@ function scrollIntoView(selector) {
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
 
+// Make About me part slowly appear into view
+
+const about = document.querySelector("#about");
+const skill = document.querySelector("#skills");
+const work = document.querySelector("#work");
+const testimonials = document.querySelector("#testimonials");
+
+//하 이거 height가 웹 크기에따라 게속 달라지네..수정해야함 ㅠ
+document.addEventListener("scroll", () => {
+  fadeIn(about, 180);
+  console.log(window.scrollY);
+});
+
+document.addEventListener("scroll", () => {
+  fadeIn(skill, 600);
+});
+
+document.addEventListener("scroll", () => {
+  fadeIn(work, 1300);
+});
+
+document.addEventListener("scroll", () => {
+  fadeIn(testimonials, 1900);
+});
+
+function fadeIn(id, height) {
+  if (window.scrollY > height) {
+    id.classList.add("scroll");
+  } else if (window.scrollY < height) {
+    id.classList.remove("scroll");
+  }
+}
+
 // Make Arrow up
 
 const arrow = document.querySelector(".arrowup");
