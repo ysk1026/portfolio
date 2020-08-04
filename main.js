@@ -74,6 +74,7 @@ function scrollIntoView(selector) {
 // Make About me part slowly appear into view
 
 const about = document.querySelector("#about");
+const aboutHeight = about.getBoundingClientRect().height;
 const skill = document.querySelector("#skills");
 const work = document.querySelector("#work");
 const testimonials = document.querySelector("#testimonials");
@@ -81,7 +82,6 @@ const testimonials = document.querySelector("#testimonials");
 //하 이거 height가 웹 크기에따라 게속 달라지네..수정해야함 ㅠ
 document.addEventListener("scroll", () => {
   fadeIn(about, 180);
-  console.log(window.scrollY);
 });
 
 document.addEventListener("scroll", () => {
@@ -103,6 +103,21 @@ function fadeIn(id, height) {
     id.classList.remove("scroll");
   }
 }
+
+const cumulativeOffset = function (element) {
+  let top = 0,
+    left = 0;
+  do {
+    top += element.offsetTop || 0;
+    left += element.offsetLeft || 0;
+    element = element.offsetParent;
+  } while (element);
+
+  return {
+    top: top,
+    left: left,
+  };
+};
 
 // Make Arrow up
 
